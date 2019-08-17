@@ -1,7 +1,6 @@
 body {
     background: #F3F5F9;
     font-family: 'Rubik', sans-serif;
-    color:
 }
 
 h5 {
@@ -13,7 +12,7 @@ h5 {
 }
 
 #logo {
-    width: 34px;
+    width: 75px;
 }
 
 #setup, #draftTool {
@@ -90,4 +89,10 @@ h5 {
     border-radius: 2px;
     background: #E3E7EF;
     color: #858B9F;
+}
+
+@media only screen and (max-width: 360px){
+    #logo {
+        width: 34px;
+    }  
 }
