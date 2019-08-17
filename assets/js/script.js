@@ -5,7 +5,6 @@ $(document).ready(function () {
     let wrBudget = 0;
     let teBudget = 0;
     let budgetTotal;
-    let budgetRemaining;
     let qbRemaining;
     let rbRemaining;
     let wrRemaining;
@@ -45,32 +44,26 @@ $(document).ready(function () {
         setBudgets();
     }
 
-    // Calculates number of players by position
+    // Calculates number of players by position and updates DOM
 
     getRoster = () => {
         qbOwned = qbArr.length;
         rbOwned = rbArr.length;
         wrOwned = wrArr.length;
         teOwned = teArr.length;
-        let rosterTotal = 16 - qbOwned - rbOwned - wrOwned - teOwned;
         $('#qbOwned').text(qbOwned);
         $('#rbOwned').text(rbOwned);
         $('#wrOwned').text(wrOwned);
         $('#teOwned').text(teOwned);
-        $('#rosterTotal').text(rosterTotal);
     }
 
+    //Updates DOM with remaining budget by position
     setBudgets = () => {
-        // qbRemaining = qbBudget;
-        // rbRemaining = rbBudget;
-        // wrRemaining = wrBudget;
-        // teRemaining = teBudget;
         $('#qbRemaining').text('$' + qbBudget);
         $('#rbRemaining').text('$' + rbBudget);
         $('#wrRemaining').text('$' + wrBudget);
         $('#teRemaining').text('$' + teBudget);
         $('#budgetRemaining').text('$' + budgetTotal);
-
     };
 
     updateRemainingBudget = () => {
@@ -78,29 +71,54 @@ $(document).ready(function () {
         let rbTotal = 0;
         let wrTotal = 0;
         let teTotal = 0;
-
-        qbArr.forEach((value) => {
-            qbTotal = qbTotal + value;
-        });
-        qbRemaining = qbBudget - qbTotal
-        $('#qbRemaining').text('$' + qbRemaining);
+        let wrOverspend = 0;
+        let rbOverspend = 0;
+        let teSubtract = 0;
+        let qbSubtract = 0;
 
         rbArr.forEach((value) => {
             rbTotal = rbTotal + value;
         });
         rbRemaining = rbBudget - rbTotal
-        $('#rbRemaining').text('$' + rbRemaining);
+        if (rbRemaining < 0) {
+            rbOverspend = Math.abs(rbRemaining);
+            rbRemaining = 0;
+            qbSubtract = Math.ceil(rbOverspend/2);
+            teSubtract = rbOverspend - qbSubtract;
+            console.log("rbOverspend: " + rbOverspend);
+            console.log("qbSubtract: " + qbSubtract);
+            console.log("teSubtract: " + teSubtract);
+        };
+
+
 
         wrArr.forEach((value) => {
             wrTotal = wrTotal + value;
         });
         wrRemaining = wrBudget - wrTotal
-        $('#wrRemaining').text('$' + wrRemaining);
+        if (wrRemaining < 0) {
+            wrOverspend = Math.abs(wrRemaining);
+            wrRemaining = 0;
+        };
+
 
         teArr.forEach((value) => {
             teTotal = teTotal + value;
         });
-        teRemaining = teBudget - teTotal
+        teRemaining = teBudget - teTotal - teSubtract
+
+        qbArr.forEach((value) => {
+            qbTotal = qbTotal + value;
+        });
+        qbRemaining = qbBudget - qbTotal - qbSubtract
+
+
+
+
+
+        $('#qbRemaining').text('$' + qbRemaining);
+        $('#rbRemaining').text('$' + rbRemaining)
+        $('#wrRemaining').text('$' + wrRemaining);
         $('#teRemaining').text('$' + teRemaining);
 
         let remainingTotal = budgetTotal - qbTotal - rbTotal - wrTotal - teTotal;
@@ -120,6 +138,8 @@ $(document).ready(function () {
             $('#teRemaining').addClass('redText');
         }
     }
+
+    // adds drafted players/costs to arr to update rosters and budgets 
 
     addQB = () => {
         if ($('#qbPrice').val().length === 0) {
@@ -166,6 +186,8 @@ $(document).ready(function () {
     };
 
     getRoster();
+
+    // DOM toggle
 
     $('#setup').click(() => {
         $('#openSetup').toggle();
