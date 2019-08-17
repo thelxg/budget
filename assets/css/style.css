@@ -8,13 +8,13 @@ body {
 }
 
 #logo {
-    width: 60px;
+    width: 40px;
 }
 
 #setup {
     display: flex;
     align-items: center;
-    padding: 5px 10px;
+    padding: 10px;
     border: 1px solid #D3D6DE;
     border-radius: 2px;
     background: #E3E7EF;
