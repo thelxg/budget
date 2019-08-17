@@ -1,6 +1,11 @@
 body {
     background: #F3F5F9;
     font-family: 'Rubik', sans-serif;
+    color:
+}
+
+h5 {
+    color: #3F4659;
 }
 
 .navbar {
@@ -11,7 +16,7 @@ body {
     width: 34px;
 }
 
-#setup {
+#setup, #draftTool {
     display: flex;
     align-items: center;
     padding: 10px;
@@ -21,11 +26,11 @@ body {
     color: #858B9F;
 }
 
-#setup i {
+#setup i, #draftTool i {
     margin-right: 6px;
 }
 
-#setupDiv {
+#setupDiv, #draftToolDiv {
     padding: 5px 10px;
     border: 1px solid #D3D6DE;
     border-radius: 2px;
@@ -39,21 +44,21 @@ body {
 .setup-div-over {
     background: red;
     color: #FCFCFC;
-    text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
-#closeSetup {
+#closeSetup, #closeDraftTool {
     display: none;
 }
 
-.positionBudget {
+.positionColumn {
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
 }
 
-.positionBudget input {
+.positionColumn input {
     border: 1px solid #D3D6DE;
     border-radius: 2px;
     text-align: center;
@@ -61,4 +66,20 @@ body {
 
 #budgetTotal {
     margin-left: 15px;
+}
+
+.remaining {
+    font-size: 10px;
+}
+
+.innerHeader {
+    border-top: 1px solid #D3D6DE;
+    border-bottom: 1px solid #D3D6DE;
+}
+
+.positionColumn button {
+    border: 1px solid #D3D6DE;
+    border-radius: 2px;
+    background: #E3E7EF;
+    color: #858B9F;
 }

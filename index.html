@@ -29,24 +29,24 @@
         <div class="row" id="setup">
             <i class="fas fa-plus" id="openSetup"></i>
             <i class="fas fa-minus" id="closeSetup"></i>
-            <h4 class="m-0">SETUP</h4>
+            <h4 class="m-0">BUDGET</h4>
         </div>
     </div>
     <div class="container setup-div" id="setupDiv">
-        <div class="row mb-3">
-            <div class="col-3 positionBudget">
+        <div class="row mb-2">
+            <div class="col-3 positionColumn">
                 <h5>QB</h5>
                 <input type="number" min="0" id="qbBudget" onchange="getValues()">
             </div>
-            <div class="col-3 positionBudget">
+            <div class="col-3 positionColumn">
                 <h5>RB</h5>
                 <input type="number" min="0" id="rbBudget" onchange="getValues()">
             </div>
-            <div class="col-3 positionBudget">
+            <div class="col-3 positionColumn">
                 <h5>WR</h5>
                 <input type="number" min="0" id="wrBudget" onchange="getValues()">
             </div>
-            <div class="col-3 positionBudget">
+            <div class="col-3 positionColumn">
                 <h5>TE</h5>
                 <input type="number" min="0" id="teBudget" onchange="getValues()">
             </div>
@@ -55,6 +55,96 @@
             <h5>TOTAL: <span id="budgetTotal"></span></h5>
         </div>
     </div>
+    <div class="container">
+        <div class="row" id="draftTool">
+            <i class="fas fa-plus" id="openDraftTool"></i>
+            <i class="fas fa-minus" id="closeDraftTool"></i>
+            <h4 class="m-0">DRAFT</h4>
+        </div>
+    </div>
+    <div class="container setup-div" id="draftToolDiv">
+        <div class="row no-gutters pt-2 mb-1">
+            <div class="col-3 positionColumn">
+                <h5 class="mb-2">QB</h5>
+            </div>
+            <div class="col-3 positionColumn">
+                <h5 class="mb-2">RB</h5>
+            </div>
+            <div class="col-3 positionColumn">
+                <h5 class="mb-2">WR</h5>
+            </div>
+            <div class="col-3 positionColumn">
+                <h5 class="mb-2">TE</h5>
+            </div>
+        </div>
+        <div class="row no-gutters mb-1">
+            <div class="innerHeader col-12 text-center my-1">
+                <h5 class="my-0">REMAINING BUDGET</h5>
+            </div>
+        </div>
+        <div class="row no-gutters mb-2">
+            <div class="col-3 positionColumn">
+                <h4><span id="qbRemaining">$0</span></h4>
+            </div>
+            <div class="col-3 positionColumn">
+                <h4><span id="rbRemaining">$0</span></h4>
+            </div>
+            <div class="col-3 positionColumn">
+                <h4><span id="wrRemaining">$0</span></h4>
+            </div>
+            <div class="col-3 positionColumn">
+                <h4><span id="teRemaining">$0</span></h4>
+            </div>
+        </div>
+        <div class="row no-gutters mb-1">
+            <div class="innerHeader col-12 text-center my-1">
+                <h5 class="my-0">OWNED</h5>
+            </div>
+        </div>
+        <div class="row no-gutters mb-2">
+            <div class="col-3 positionColumn">
+                <h4><span id="qbOwned"></span></h4>
+            </div>
+            <div class="col-3 positionColumn">
+                <h4><span id="rbOwned"></span></h4>
+            </div>
+            <div class="col-3 positionColumn">
+                <h4><span id="wrOwned"></span></h4>
+            </div>
+            <div class="col-3 positionColumn">
+                <h4><span id="teOwned"></span></h4>
+            </div>
+        </div>
+        <div class="row no-gutters mb-1">
+            <div class="innerHeader col-12 text-center my-1">
+                <h5 class="my-0">PURCHASE PRICE</h5>
+            </div>
+        </div>
+        <div class="row pt-2 mb-2">
+            <div class="col-3 positionColumn">
+                <input type="number" min="0" id="qbPrice">
+                <button class="mt-2" id="addQB" onclick="addQB()">ADD</button>
+            </div>
+            <div class="col-3 positionColumn">
+                <input type="number" min="0" id="rbPrice">
+                <button class="mt-2" id="addRB" onclick="addRB()">ADD</button>
+            </div>
+            <div class="col-3 positionColumn">
+                <input type="number" min="0" id="wrPrice">
+                <button class="mt-2" id="addWR" onclick="addWR()">ADD</button>
+            </div>
+            <div class="col-3 positionColumn">
+                <input type="number" min="0" id="tePrice">
+                <button class="mt-2" id="addTE" onclick="addTE()">ADD</button>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <h5>TOTAL REMAINING: <span id="budgetRemaining"></span></h5>
+        </div>
+
+    </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
