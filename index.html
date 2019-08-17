@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="container setup-div" id="setupDiv">
-        <div class="row mb-2">
+        <div class="row mb-3">
             <div class="col-3 positionColumn">
                 <h5>QB</h5>
                 <input type="number" min="0" id="qbBudget" onchange="getValues()">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="row no-gutters">
-            <h5>TOTAL: <span id="budgetTotal"></span></h5>
+            <h5>TOTAL: <span id="budgetTotal">$0</span></h5>
         </div>
     </div>
     <div class="container">
@@ -120,7 +120,7 @@
                 <h5 class="my-0">PURCHASE PRICE</h5>
             </div>
         </div>
-        <div class="row pt-2 mb-2">
+        <div class="row pt-2 mb-3">
             <div class="col-3 positionColumn">
                 <input type="number" min="0" id="qbPrice">
                 <button class="mt-2" id="addQB" onclick="addQB()">ADD</button>
@@ -139,7 +139,8 @@
             </div>
         </div>
         <div class="row no-gutters">
-            <h5>TOTAL REMAINING: <span id="budgetRemaining"></span></h5>
+            <h5>TOTAL REMAINING: <span id="budgetRemaining">$0</span></h5>
+            <h5>ROSTER SPOTS REMAINING: <span id="rosterTotal">0</span></h5>
         </div>
 
     </div>

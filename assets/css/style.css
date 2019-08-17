@@ -47,6 +47,14 @@ h5 {
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
+.setup-div-over h5 {
+    color: #FCFCFC;
+}
+
+.redText {
+    color: red;
+}
+
 #closeSetup, #closeDraftTool {
     display: none;
 }

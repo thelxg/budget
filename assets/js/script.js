@@ -19,9 +19,10 @@ $(document).ready(function () {
     let wrOwned;
     let teOwned;
 
+    // Totals budget input from user
+
     getTotal = () => {
         budgetTotal = qbBudget + rbBudget + wrBudget + teBudget;
-
 
         $('#budgetTotal').text('$' + budgetTotal);
 
@@ -31,6 +32,8 @@ $(document).ready(function () {
             $('#setupDiv').addClass('setup-div').removeClass('setup-div-over');
         }
     }
+
+    // Gets budget input from user, 
 
     getValues = () => {
         qbBudget = Number($('#qbBudget').val());
@@ -42,26 +45,30 @@ $(document).ready(function () {
         setBudgets();
     }
 
+    // Calculates number of players by position
+
     getRoster = () => {
         qbOwned = qbArr.length;
         rbOwned = rbArr.length;
         wrOwned = wrArr.length;
         teOwned = teArr.length;
+        let rosterTotal = 16 - qbOwned - rbOwned - wrOwned - teOwned;
         $('#qbOwned').text(qbOwned);
         $('#rbOwned').text(rbOwned);
         $('#wrOwned').text(wrOwned);
         $('#teOwned').text(teOwned);
+        $('#rosterTotal').text(rosterTotal);
     }
 
     setBudgets = () => {
-        qbRemaining = qbBudget;
-        rbRemaining = rbBudget;
-        wrRemaining = wrBudget;
-        teRemaining = teBudget;
-        $('#qbRemaining').text('$' + qbRemaining);
-        $('#rbRemaining').text('$' + rbRemaining);
-        $('#wrRemaining').text('$' + wrRemaining);
-        $('#teRemaining').text('$' + teRemaining);
+        // qbRemaining = qbBudget;
+        // rbRemaining = rbBudget;
+        // wrRemaining = wrBudget;
+        // teRemaining = teBudget;
+        $('#qbRemaining').text('$' + qbBudget);
+        $('#rbRemaining').text('$' + rbBudget);
+        $('#wrRemaining').text('$' + wrBudget);
+        $('#teRemaining').text('$' + teBudget);
         $('#budgetRemaining').text('$' + budgetTotal);
 
     };
@@ -71,7 +78,7 @@ $(document).ready(function () {
         let rbTotal = 0;
         let wrTotal = 0;
         let teTotal = 0;
-        
+
         qbArr.forEach((value) => {
             qbTotal = qbTotal + value;
         });
@@ -99,6 +106,19 @@ $(document).ready(function () {
         let remainingTotal = budgetTotal - qbTotal - rbTotal - wrTotal - teTotal;
 
         $('#budgetRemaining').text('$' + remainingTotal);
+
+        if (qbRemaining === 0) {
+            $('#qbRemaining').addClass('redText');
+        }
+        if (rbRemaining === 0) {
+            $('#rbRemaining').addClass('redText');
+        }
+        if (wrRemaining === 0) {
+            $('#wrRemaining').addClass('redText');
+        }
+        if (teRemaining === 0) {
+            $('#teRemaining').addClass('redText');
+        }
     }
 
     addQB = () => {
