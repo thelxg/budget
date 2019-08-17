@@ -1,0 +1,64 @@
+body {
+    background: #F3F5F9;
+    font-family: 'Rubik', sans-serif;
+}
+
+.navbar {
+    background: #3F4659;
+}
+
+#logo {
+    width: 60px;
+}
+
+#setup {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #D3D6DE;
+    border-radius: 2px;
+    background: #E3E7EF;
+    color: #858B9F;
+}
+
+#setup i {
+    margin-right: 6px;
+}
+
+#setupDiv {
+    padding: 5px 10px;
+    border: 1px solid #D3D6DE;
+    border-radius: 2px;
+    display: none;
+}
+
+.setup-div {
+    background: #FCFCFC;
+}
+
+.setup-div-over {
+    background: red;
+    color: #FCFCFC;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.2);
+}
+
+#closeSetup {
+    display: none;
+}
+
+.positionBudget {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.positionBudget input {
+    border: 1px solid #D3D6DE;
+    border-radius: 2px;
+    text-align: center;
+}
+
+#budgetTotal {
+    margin-left: 15px;
+}
