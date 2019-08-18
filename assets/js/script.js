@@ -1,7 +1,7 @@
 function btnChrome_onclick() {
     document.documentElement.webkitRequestFullScreen();
   };
-  
+
 let qbBudget = 0;
 let rbBudget = 0;
 let wrBudget = 0;
@@ -224,6 +224,11 @@ maxBid = () => {
         $('#maxBid').text('$' + maximumBid).addClass('redText');
         $('#deedIt').toggle();
     };
+    console.log('total players: ' + totalPlayers);
+    console.log('dollar players: ' + dollarPlayers);
+    console.log('budget remaining: ' + budgetRemaining);
+    console.log('maxbid: ' + maximumBid);
+    console.log('-------------------------');
 };
 
 // DOM toggle
