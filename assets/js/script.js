@@ -1,6 +1,6 @@
 function btnChrome_onclick() {
     document.documentElement.webkitRequestFullScreen();
-  };
+};
 
 let qbBudget = 0;
 let rbBudget = 0;
@@ -213,17 +213,21 @@ maxBid = () => {
     let maximumBid;
     let totalPlayers = qbArr.length + rbArr.length + wrArr.length + teArr.length;
     let dollarPlayers = 14 - totalPlayers;
-    if (budgetRemaining > dollarPlayers) {
-        maximumBid = budgetRemaining - dollarPlayers;
-        $('#maxBid').text('$' + maximumBid).removeClass('redText');
-    } else if (budgetRemaining === dollarPlayers) {
-        maximumBid = 1;
-        $('#maxBid').text('$' + maximumBid).removeClass('redText');
-    } else if (budgetRemaining === 0) {
+    if (totalPlayers === 15) {
         maximumBid = 0;
         $('#maxBid').text('$' + maximumBid).addClass('redText');
         $('#deedIt').toggle();
-    };
+    } else {
+        if (budgetRemaining > dollarPlayers) {
+            maximumBid = budgetRemaining - dollarPlayers;
+            $('#maxBid').text('$' + maximumBid).removeClass('redText');
+        } else if (budgetRemaining === dollarPlayers) {
+            maximumBid = 1;
+            $('#maxBid').text('$' + maximumBid).removeClass('redText');
+        } else {
+            return
+        };
+    }
     console.log('total players: ' + totalPlayers);
     console.log('dollar players: ' + dollarPlayers);
     console.log('budget remaining: ' + budgetRemaining);
