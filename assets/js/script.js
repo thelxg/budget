@@ -257,17 +257,17 @@ renderPurchases = () => {
 };
 
 // DOM toggle
-$('#setup').click(() => {
-    $('#openSetup').toggle();
-    $('#closeSetup').toggle();
-    $('#setupDiv').toggle();
-});
+// $('#setup').click(() => {
+//     $('#openSetup').toggle();
+//     $('#closeSetup').toggle();
+//     $('#setupDiv').toggle();
+// });
 
-$('#draftTool').click(() => {
-    $('#openDraftTool').toggle();
-    $('#closeDraftTool').toggle();
-    $('#draftToolDiv').toggle();
-});
+// $('#draftTool').click(() => {
+//     $('#openDraftTool').toggle();
+//     $('#closeDraftTool').toggle();
+//     $('#draftToolDiv').toggle();
+// });
 
 $('#owned').click(() => {
     $('#openPositionCost').toggle();
