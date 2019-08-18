@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="row no-gutters">
-            <h5>TOTAL: <span id="budgetTotal">$0</span></h5>
+            <h5>TOTAL: <span class="redText" id="budgetTotal">$0</span></h5>
         </div>
     </div>
     <div class="container">
@@ -84,7 +84,7 @@
         </div>
         <div class="row no-gutters mb-2">
             <div class="col-3 positionColumn">
-                <h4><span id="qbRemaining">$0</span></h4>
+                <h4 id="qbRemaining">$0</h4>
             </div>
             <div class="col-3 positionColumn">
                 <h4><span id="rbRemaining">$0</span></h4>
@@ -97,22 +97,40 @@
             </div>
         </div>
         <div class="row no-gutters mb-1">
-            <div class="innerHeader col-12 text-center my-1">
+            <div class="innerHeader col-12 text-center my-1" id="owned">
+                <i class="fas fa-plus" id="openPositionCost"></i>
+                <i class="fas fa-minus" id="closePositionCost"></i>
                 <h5 class="my-0">OWNED</h5>
             </div>
         </div>
         <div class="row no-gutters mb-2">
             <div class="col-3 positionColumn">
-                <h4><span id="qbOwned"></span></h4>
+                <h4><span id="qbOwned">0</span></h4>
             </div>
             <div class="col-3 positionColumn">
-                <h4><span id="rbOwned"></span></h4>
+                <h4><span id="rbOwned">0</span></h4>
             </div>
             <div class="col-3 positionColumn">
-                <h4><span id="wrOwned"></span></h4>
+                <h4><span id="wrOwned">0</span></h4>
             </div>
             <div class="col-3 positionColumn">
-                <h4><span id="teOwned"></span></h4>
+                <h4><span id="teOwned">0</span></h4>
+            </div>
+        </div>
+        <div class="row no-gutters mb-2" id="positionCostDiv">
+            <div class="flex py-1 mb-1">
+                <div class="col-3 ownedColumn">
+                    <ul class="mb-0" id="qbCost"></ul>
+                </div>
+                <div class="col-3 ownedColumn">
+                    <ul class="mb-0" id="rbCost"></ul>
+                </div>
+                <div class="col-3 ownedColumn">
+                    <ul class="mb-0" id="wrCost"></ul>
+                </div>
+                <div class="col-3 ownedColumn">
+                    <ul class="mb-0" id="teCost"></ul>
+                </div>
             </div>
         </div>
         <div class="row no-gutters mb-1">
