@@ -125,6 +125,7 @@ addQB = () => {
         getRoster();
         updateBudgets();
         renderPurchases();
+        maxBid();
     }
 };
 
@@ -137,6 +138,7 @@ addRB = () => {
         getRoster();
         updateBudgets();
         renderPurchases();
+        maxBid();
     }
 };
 
@@ -149,6 +151,7 @@ addWR = () => {
         getRoster();
         updateBudgets();
         renderPurchases();
+        maxBid();
     }
 };
 
@@ -161,64 +164,9 @@ addTE = () => {
         getRoster();
         updateBudgets();
         renderPurchases();
+        maxBid();
     }
 };
-
-
-
-
-
-
-
-
-
-// updateRemainingBudget = () => {
-//     let qbTotal = 0;
-//     let rbTotal = 0;
-//     let wrTotal = 0;
-//     let teTotal = 0;
-
-//     rbArr.forEach((value) => {
-//         rbTotal = rbTotal + value;
-//     });
-//     rbRemaining = rbBudget - rbTotal
-//     // if (rbRemaining < 0) {
-//     //     rbOverspend = Math.abs(rbRemaining);
-//     //     rbRemaining = 0;
-//     //     qbSubtract = Math.ceil(rbOverspend / 2);
-//     //     teSubtract = rbOverspend - qbSubtract;
-//     // };
-
-//     wrArr.forEach((value) => {
-//         wrTotal = wrTotal + value;
-//     });
-//     wrRemaining = wrBudget - wrTotal
-//     // if (wrRemaining < 0) {
-//     //     wrOverspend = Math.abs(wrRemaining);
-//     //     wrRemaining = 0;
-//     //     qbSubtract = Math.ceil(wrOverspend / 2);
-//     //     teSubtract = wrOverspend - qbSubtract;
-//     // };
-
-//     teArr.forEach((value) => {
-//         teTotal = teTotal + value;
-//     });
-//     teRemaining = teBudget - teTotal
-
-//     qbArr.forEach((value) => {
-//         qbTotal = qbTotal + value;
-//     });
-//     qbRemaining = qbBudget - qbTotal
-// };
-
-
-
-
-
-
-
-
-
 
 // Renders player prices
 renderPurchases = () => {
@@ -256,6 +204,29 @@ renderPurchases = () => {
     });
 };
 
+// Max bid function
+maxBid = () => {
+    let maximumBid;
+    let totalPlayers = qbArr.length + rbArr.length + wrArr.length + teArr.length;
+    let dollarPlayers = 14 - totalPlayers;
+    if (budgetRemaining > totalPlayers) {
+        maximumBid = budgetRemaining - dollarPlayers;
+        $('#maxBid').text('$' + maximumBid).removeClass('redText');
+    } else if (budgetRemaining === dollarPlayers) {
+        maximumBid = 1;
+        $('#maxBid').text('$' + maximumBid).removeClass('redText');
+    } else if (budgetRemaining === 0) {
+        maximumBid = 0;
+        $('#maxBid').text('$' + maximumBid).addClass('redText');
+        $('#deedIt').toggle();
+    };
+    console.log('budget remaining = ' + budgetRemaining);
+    console.log('total players = ' + totalPlayers);
+    console.log('dollar players left = ' + dollarPlayers);
+    console.log('max bid = ' + maximumBid);
+    console.log('-------------------------');
+};
+
 // DOM toggle
 $('#setup').click(() => {
     $('#openSetup').toggle();
@@ -281,6 +252,7 @@ $(document).on('click', '.qbArr', function () {
     renderPurchases();
     getRoster();
     updateBudgets();
+    maxBid();
 });
 
 $(document).on('click', '.rbArr', function () {
@@ -289,6 +261,7 @@ $(document).on('click', '.rbArr', function () {
     renderPurchases();
     getRoster();
     updateBudgets();
+    maxBid();
 });
 
 $(document).on('click', '.wrArr', function () {
@@ -297,6 +270,7 @@ $(document).on('click', '.wrArr', function () {
     renderPurchases();
     getRoster();
     updateBudgets();
+    maxBid();
 });
 
 $(document).on('click', '.teArr', function () {
@@ -305,4 +279,5 @@ $(document).on('click', '.teArr', function () {
     renderPurchases();
     getRoster();
     updateBudgets();
+    maxBid();
 });
