@@ -213,7 +213,7 @@ maxBid = () => {
     let maximumBid;
     let totalPlayers = qbArr.length + rbArr.length + wrArr.length + teArr.length;
     let dollarPlayers = 14 - totalPlayers;
-    if (budgetRemaining > totalPlayers) {
+    if (budgetRemaining > dollarPlayers) {
         maximumBid = budgetRemaining - dollarPlayers;
         $('#maxBid').text('$' + maximumBid).removeClass('redText');
     } else if (budgetRemaining === dollarPlayers) {
