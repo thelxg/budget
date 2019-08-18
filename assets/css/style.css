@@ -18,7 +18,7 @@ h5 {
 #setup, #draftTool {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 2px 10px;
     border: 1px solid #D3D6DE;
     border-radius: 2px;
     background: #E3E7EF;
