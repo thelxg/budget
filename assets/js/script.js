@@ -32,13 +32,13 @@ getValues = () => {
 getTotal = () => {
     budgetTotal = qbBudget + rbBudget + wrBudget + teBudget;
 
-    if (budgetTotal < 199) {
+    if (budgetTotal < 224) {
         $('#budgetTotal').addClass('redText');
     } else {
         $('#budgetTotal').removeClass('redText');
     };
 
-    if (budgetTotal > 199) {
+    if (budgetTotal > 224) {
         $('#setupDiv').addClass('setup-div-over').removeClass('setup-div');
     } else {
         $('#setupDiv').addClass('setup-div').removeClass('setup-div-over');
